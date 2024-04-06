@@ -1,35 +1,3 @@
-<?php 
-session_start();
-$error = "";
-    if(isset($_POST['submit'])){
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        require 'includes/db.php';
-
-        $query = "SELECT * FROM login_check WHERE username='$username' and password='$password'";
-        $result = mysqli_query($connection,$query);
-        $count = mysqli_num_rows($result);
-        if($count > 0){
-            $row = mysqli_fetch_assoc($result);
-
-            $_SESSION['ROLE'] = $row['role'];
-            $_SESSION['is_login'] = 'yes';
-
-            if($row['role'] == 1){
-                header('location: home.php');
-            }
-            if($row['role'] == 0){
-                header('location: personal_info.php');
-            }
-
-        }else{
-            $error = "Please enter correct login details.";
-        }
-
-    }
-
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +40,7 @@ $error = "";
                                                 <a class="small" href="password.html">Forgot Password?</a>
                                                 <input class="btn btn-primary" type="submit" name="submit" value="Login">
                                             </div>
-                                            <center><?php echo $error ?></center>
+                                            
                                         </form>
                                     </div>
                                     <div class="card-footer text-center">

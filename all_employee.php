@@ -1,9 +1,3 @@
-<?php require 'includes/header.php'; 
-
-if(isset($_SESSION['ROLE']) &&  $_SESSION['ROLE'] != '1'){
-    header('location: personal_info.php');
-    die();
-}
 
 ?>
             <div id="layoutSidenav_content">
