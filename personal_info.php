@@ -1,10 +1,5 @@
 <?php require 'includes/header.php'; 
 
-if (!isset($_SESSION['login'])) {
-    header('location: login.php');
-    die();
-}
-
 
 ?>
 
