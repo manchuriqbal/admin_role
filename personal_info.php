@@ -1,4 +1,12 @@
-<?php require 'includes/header.php'; ?>
+<?php require 'includes/header.php'; 
+
+if (!isset($_SESSION['login'])) {
+    header('location: login.php');
+    die();
+}
+
+
+?>
 
             <div id="layoutSidenav_content">
                 <main>

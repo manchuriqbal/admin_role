@@ -1,12 +1,7 @@
-<?php 
-    session_start();
-    if(!(isset($_SESSION['is_login']))){
-        header('location: login.php');
-        die();
-    }
 
+<?php
+session_start();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +44,9 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
 
-                            <?php if($_SESSION['ROLE'] == 1){ ?>
+                            <?php if ($_SESSION['role'] > 0) {
+                                
+                            ?>
 
                             <a class="nav-link" href="home.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -59,8 +56,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
                                 All Employee
                             </a>
-
-                            <?php } ?>
+                            
+                            <?php
+                            
+                            } ?>
 
                             <a class="nav-link" href="personal_info.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-unlock"></i></div>

@@ -1,3 +1,42 @@
+<?php
+
+session_start();
+ 
+if (isset($_REQUEST['submit'])) {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    
+
+    include "includes/db.php";
+
+    $query = "SELECT * FROM user_info WHERE username = '$username' && password = '$password'";
+    $result = mysqli_query($connection, $query);
+    
+    $count = mysqli_num_rows($result);
+    
+    if ($count > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $_SESSION['role'] = $row['role'];
+        $_SESSION['login'] = "yes";
+        if ($_SESSION['role'] == 1) {
+            header('location: home.php');
+        }
+        if ($_SESSION['role'] == 0){
+            header('location: personal_info.php');
+        }
+        
+    }
+}
+if (isset($_SESSION['login'])) {
+    if ($_SESSION['login'] == "yes") {
+        header('location: home.php');
+        die();
+    }
+}
+
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">

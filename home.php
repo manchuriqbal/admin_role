@@ -1,4 +1,17 @@
+<?php require 'includes/header.php';
 
+
+if (!isset($_SESSION['login'])) {
+    header('location: login.php');
+    die();
+}
+
+if (!$_SESSION['role'] == 1) {
+    header('location: personal_info.php');
+    die();
+}
+
+?>
 
             <div id="layoutSidenav_content">
                 <main>
