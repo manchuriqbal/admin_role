@@ -1,5 +1,4 @@
 <?php 
 
-	$connection = mysqli_connect("localhost","root","","admin_php");
-
+	$connection = mysqli_connect("localhost","root","","test_practice");
 ?>
